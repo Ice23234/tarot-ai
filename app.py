@@ -18,7 +18,7 @@ cards = [
     "Wheel of Fortune"
 ]
 
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+client = OpenAI(api_key=st.secrets["sk-proj-Nz-Wjiiws3JaXc8ybgovztabiXamdjClglGD6NTnRV0VVCq9wolmoS8TwC11krlra08s5C56rlT3BlbkFJU6ndezU2o_yp-x8nXBs3ICI6Ru1Jufl02CFshePbGOApK8-IjBGsKUg8MQUvuXF77J9jE9RikAOPENAI_API_KEY="])
 
 question = st.text_input("ถามคำถามเกี่ยวกับอนาคตของคุณ")
 
