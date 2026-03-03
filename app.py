@@ -1,30 +1,50 @@
 import streamlit as st
 from openai import OpenAI
+import random
 
 st.title("🔮 AI Tarot Reader")
 
-# รับ API key จาก Streamlit secrets
+# ไพ่ตัวอย่าง
+cards = [
+    "The Fool",
+    "The Magician",
+    "The High Priestess",
+    "The Empress",
+    "The Emperor",
+    "The Lovers",
+    "The Chariot",
+    "Strength",
+    "The Hermit",
+    "Wheel of Fortune"
+]
+
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 question = st.text_input("ถามคำถามเกี่ยวกับอนาคตของคุณ")
 
-if st.button("ทำนาย"):
+if st.button("สุ่มไพ่"):
+
+    card = random.choice(cards)
 
     prompt = f"""
-    ผู้ใช้ถามว่า: {question}
+    ไพ่ที่ได้คือ {card}
 
-    กรุณาทำนายดวงแบบไพ่ทาโรต์
+    คำถามของผู้ใช้:
+    {question}
+
+    ช่วยทำนายดวงแบบไพ่ทาโรต์
     ตอบเป็นภาษาไทย
     """
 
     response = client.chat.completions.create(
         model="gpt-4.1-mini",
-        messages=[
-            {"role": "user", "content": prompt}
-        ]
+        messages=[{"role": "user", "content": prompt}]
     )
 
-    answer = response.choices[0].message.content
+    reading = response.choices[0].message.content
 
-    st.write("🔮 คำทำนาย")
-    st.write(answer)
+    st.subheader("ไพ่ของคุณ")
+    st.write(card)
+
+    st.subheader("คำทำนาย")
+    st.write(reading)
