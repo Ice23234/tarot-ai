@@ -18,7 +18,7 @@ cards = [
     "Wheel of Fortune"
 ]
 
-client = OpenAI(api_key=st.secrets["sk-proj-Nz-Wjiiws3JaXc8ybgovztabiXamdjClglGD6NTnRV0VVCq9wolmoS8TwC11krlra08s5C56rlT3BlbkFJU6ndezU2o_yp-x8nXBs3ICI6Ru1Jufl02CFshePbGOApK8-IjBGsKUg8MQUvuXF77J9jE9RikAOPENAI_API_KEY="])
+client = OpenAI(api_key=st.secrets["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"])
 
 question = st.text_input("ถามคำถามเกี่ยวกับอนาคตของคุณ")
 
