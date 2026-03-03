@@ -18,8 +18,7 @@ cards = [
     "Wheel of Fortune"
 ]
 
-client = OpenAI(api_key=st.secrets["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"])
-
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 question = st.text_input("ถามคำถามเกี่ยวกับอนาคตของคุณ")
 
 if st.button("สุ่มไพ่"):
